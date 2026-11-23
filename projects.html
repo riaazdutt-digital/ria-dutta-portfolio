@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/style.css">
+<title>Projects | Ria Dutta</title></head>
+<body id="top">
+<header class="nav"><div class="wrap"><a class="logo" href="index.html"><span class="mark"><span id="mk"></span><i></i></span><span>RIA<span class="dot">.</span>DUTTA</span></a><div class="nav-r"><a class="back" href="index.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Back to home</a><a class="btn btn-o" href="index.html#contact">Get in touch</a></div></div></header>
+<main>
+<div class="wrap cs-hero">
+  <div class="eyebrow">Projects</div>
+  <h1>13 projects, <span class="it" style="font-style:normal">real dashboards.</span></h1>
+  <p>Every project covers the challenge, what I did, the results and the original campaign screenshot. Filter by platform, then open any card.</p>
+  <div class="filters" id="filters" role="group" aria-label="Filter by platform">
+    <button class="fbtn on" data-f="all">All <sup id="n-all"></sup></button><button class="fbtn" data-f="Amazon Ads">Amazon Ads <sup id="n-am"></sup></button><button class="fbtn" data-f="Google Ads">Google Ads <sup id="n-go"></sup></button><button class="fbtn" data-f="Meta Ads">Meta Ads <sup id="n-me"></sup></button>
+  </div>
+</div>
+<div class="wrap cs-grid"><div class="grid3" id="cards"></div></div>
+</main>
+<script src="js/data.js"></script><script src="js/common.js"></script>
+<script>
+document.getElementById('mk').outerHTML=STAR;
+const box=document.getElementById('cards');
+box.innerHTML=CASES.map(c=>card(c,'thumb')).join('');
+const cnt=f=>CASES.filter(c=>c.family.includes(f)).length;
+document.getElementById('n-all').textContent=CASES.length;document.getElementById('n-am').textContent=cnt('Amazon Ads');document.getElementById('n-go').textContent=cnt('Google Ads');document.getElementById('n-me').textContent=cnt('Meta Ads');
+document.getElementById('filters').addEventListener('click',e=>{
+  const b=e.target.closest('.fbtn');if(!b)return;
+  document.querySelectorAll('.fbtn').forEach(x=>x.classList.toggle('on',x===b));
+  const f=b.dataset.f,all=[...box.querySelectorAll('.pc')];
+  all.forEach(c=>c.classList.add('fo'));
+  setTimeout(()=>{
+    all.forEach(c=>{c.hidden=!(f==='all'||c.dataset.fam.split('|').includes(f))});
+    let n=0;all.filter(c=>!c.hidden).forEach(c=>{c.classList.remove('fo');c.style.animation='none';void c.offsetWidth;c.style.animation='cardIn .55s '+(n++*60)+'ms cubic-bezier(.2,.7,.2,1) both'});
+    FX.paint();
+  },220);
+});
+</script>
+<script src="js/fx.js"></script>
+</body></html>
