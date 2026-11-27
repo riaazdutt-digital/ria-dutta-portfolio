@@ -1,10 +1,10 @@
 RIA DUTTA PORTFOLIO - how to use
 
 FILES
-  index.html          Homepage
-  projects.html       Projects page: all 13 case studies
-  social-media.html   Social media marketing portfolio (from your PDF) (filter: All / Amazon / Google / Meta)
-  case-study.html     One template that shows any case study (case-study.html?id=kiro)
+  /                  Homepage
+  /projects           Projects page: all 13 case studies
+  /social-media       Social media marketing portfolio (filter: All / Amazon / Google / Meta)
+  /case-study         One template for any case study (/case-study?id=kiro)
   css/style.css       All styling (colours and fonts are at the top, in :root)
   js/data.js          All 13 case study text (edit wording here)
   js/common.js        Skills & tools list, 7 levers, 8 impact numbers
@@ -16,7 +16,7 @@ BEFORE YOU PUBLISH
      are linked (edit the url field of each case in js/data.js).
 
 TEST ON YOUR COMPUTER
-  Do not double-click index.html (case studies need a local server). Instead, in this folder run:
+  Open the site through a local server (case studies need one). In this folder run:
       python -m http.server 8000
   then open http://localhost:8000
 
