@@ -8,7 +8,7 @@ const logo=LOGOF[c.id];
 const sub=c.subtitle||`${c.short} \u00b7 ${c.platform}`;
 const prev=CASES[i-1],next=CASES[i+1];
 document.getElementById('cs').innerHTML=`
-<a class="all" href="projects.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>All projects</a>
+<a class="all" href="/projects"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>All projects</a>
 <div class="kick"><img src="assets/logos/${logo}" alt="" style="object-fit:${(COVER[c.id]&&COVER[c.id].t==='cover')?'cover':'contain'};padding:${(COVER[c.id]&&COVER[c.id].t==='cover')?0:3}px"><span>Case study ${num} \u00b7 ${c.platform} \u00b7 ${c.brand}</span></div>
 <header class="cs-top"><h1>${c.headline}</h1><p class="st">${sub}</p>
  <p class="ob"><b>Campaign objective:</b> ${c.objective||''}</p>
@@ -22,7 +22,7 @@ document.getElementById('cs').innerHTML=`
 </section>
 <section class="evid"><div class="eyebrow">Campaign performance evidence</div>
  <figure><img src="assets/evidence/${c.id}.jpg" alt="${c.brand} campaign dashboard screenshot">${c.caption?`<figcaption>${c.caption}</figcaption>`:''}</figure></section>
-<div class="nextrow">${prev?`<a href="case-study.html?id=${prev.id}">\u2190 ${prev.brand}</a>`:'<span></span>'}${next?`<a href="case-study.html?id=${next.id}">${next.brand} \u2192</a>`:''}</div>`;
+<div class="nextrow">${prev?`<a href="/case-study?id=${prev.id}">\u2190 ${prev.brand}</a>`:'<span></span>'}${next?`<a href="/case-study?id=${next.id}">${next.brand} \u2192</a>`:''}</div>`;
 document.querySelector('.tabs').addEventListener('click',e=>{const b=e.target.closest('.tab');if(!b)return;
  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t===b));
  document.querySelectorAll('.pane').forEach(p=>p.classList.toggle('on',p.id==='p-'+b.dataset.p));});
