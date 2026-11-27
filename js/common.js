@@ -61,7 +61,7 @@ function card(c,mode){
   else{const v=COVER[c.id]||{f:LOGOF[c.id],t:'logo'};media=`<img class="${v.t}" src="${A}logos/${v.f}" alt="${c.brand} logo">`;}
   const bg=(mode!=='thumb'&&COVER[c.id]&&COVER[c.id].bg)?` style="background:${COVER[c.id].bg}"`:'';
   const t=c.tiles.slice(0,2);
-  return `<a class="pc" href="case-study.html?id=${c.id}" data-fam="${c.family.join('|')}">
+  return `<a class="pc" href="/case-study?id=${c.id}" data-fam="${c.family.join('|')}">
    <div class="im"${bg}><div class="imc">${media}</div>${badge(c)}</div>
    <div class="bd"><h4>${c.brand}</h4><div class="meta">${c.platform} \u00b7 ${c.short}</div>
    <p class="hd">${c.headline}</p>
