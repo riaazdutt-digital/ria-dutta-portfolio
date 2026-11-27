@@ -126,3 +126,18 @@
 }
 
 html{scroll-padding-top:130px}
+
+/* Official brand social-profile links */
+.shot figcaption .brand-social-link{
+  display:inline-flex;align-items:center;width:max-content;margin-top:8px;
+  color:var(--slate);font-family:var(--mono);font-size:10px;font-weight:600;
+  letter-spacing:.04em;text-decoration:none;border-bottom:1px solid rgba(63,74,84,.42);
+  padding-bottom:3px;transition:color .2s,border-color .2s
+}
+.shot figcaption .brand-social-link:hover,
+.shot figcaption .brand-social-link:focus-visible{
+  color:#c64d9d;border-color:currentColor
+}
+#sm-grids .shot figcaption .brand-social-link{
+  color:#ffd9f6;border-color:rgba(255,217,246,.55)
+}
