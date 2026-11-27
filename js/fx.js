@@ -1,8 +1,8 @@
 /* Interaction layer: scroll reveal (fade + unblur), tilt, page transitions, scroll-spy */
 (function(){
   const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const MOD={'.pc':3,'.tile':4,'.kp div':4,'.cc':4,'.chips .chip':5,'.more > div':3,'.spec span':4};
-  const SEL=['.eyebrow','h2.sec','.about-h','.about-copy p','.headed','.spec','.row','.grp h4','.chips .chip','.lev-btn','.lev-panel','.tile','.job','.more > div','.head-row','.pc','.contact h2','.contact .lead','.cv-row','.cc','.ft','.cs-hero > *','.filters','.cs .all','.cs .kick','.cs-top','.kp div','.panel','.evid','.nextrow'];
+  const MOD={'.pc':3,'.tile':4,'.kp div':4,'.cc':4,'.chips .chip':5,'.more > div':3,'.spec span':4,'.brand':5,'.shot':3};
+  const SEL=['.eyebrow','h2.sec','.about-h','.about-copy p','.headed','.spec','.row','.grp h4','.chips .chip','.lev-btn','.lev-panel','.tile','.job','.more > div','.head-row','.pc','.contact h2','.contact .lead','.cv-row','.cc','.ft','.cs-hero > *','.filters','.cs .all','.cs .kick','.cs-top','.kp div','.panel','.evid','.nextrow','.gal-head h2','.shot','.brand','.sm-card','.about-stickers','.sm-banner','.brands-sec h2'];
   let items=[];
   const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
   const ease=t=>1-Math.pow(1-t,3);
@@ -43,11 +43,11 @@
     }
   }
   /* scroll-spy */
-  const spyLinks=[...document.querySelectorAll('.nav ul a[href^="#"]')];
+  const spyLinks=[...document.querySelectorAll('.nav ul a[href^="#"], .subnav a[href^="#"]')];
   function spy(){
     if(!spyLinks.length)return;
     let cur=null;
-    spyLinks.forEach(a=>{const s=document.getElementById(a.getAttribute('href').slice(1));if(s&&s.getBoundingClientRect().top<=innerHeight*0.4)cur=a});
+    spyLinks.forEach(a=>{const s=document.getElementById(a.getAttribute('href').slice(1));if(!s)return;const r=s.getBoundingClientRect();if(r.top<=innerHeight*0.4&&r.bottom>innerHeight*0.4)cur=a});
     spyLinks.forEach(a=>a.classList.toggle('on',a===cur));
   }
   function onScroll(){

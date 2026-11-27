@@ -2,7 +2,8 @@ RIA DUTTA PORTFOLIO - how to use
 
 FILES
   index.html          Homepage
-  projects.html       Projects page: all 13 case studies (filter: All / Amazon / Google / Meta)
+  projects.html       Projects page: all 13 case studies
+  social-media.html   Social media marketing portfolio (from your PDF) (filter: All / Amazon / Google / Meta)
   case-study.html     One template that shows any case study (case-study.html?id=kiro)
   css/style.css       All styling (colours and fonts are at the top, in :root)
   js/data.js          All 13 case study text (edit wording here)
